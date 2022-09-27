@@ -1,0 +1,101 @@
+#We first declare the variables
+id1 = 2021302196
+college1 = 'CISC'
+course1 = 'BSIT'
+year1 = 'Second Year'
+fname1 = 'Anie Joseph'
+lname1 = 'Cabahug'
+subject1 = ['GEC17','GEE11','IT51','IT53','IT55','ITCC45','ITCC47','PE33']
+unit1 = [3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0]
+grade1 = ['w','w','w','w','w','inc','w','w']#The purpose of this sample variable is to determine if the function works
+
+id2 = 2021300527
+college2 = 'CISC'
+course2 = 'BSIT'
+year2 = 'Second Year'
+fname2 = 'Jho Anna Marie'
+lname2 = 'Castro'
+subject2 = ['GEC17','GEE11','IT51','IT53','IT55','ITCC45','ITCC47','PE33']
+unit2 = [3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0]
+grade2 = [1.0,1.0,1.25,2.5,2.75,3.0,2.0,1.75]
+
+id3 = 2021302225
+college3 = 'CISC'
+course3 = 'BSIT'
+year3 = 'Second Year'
+fname3 = 'Jiu Axl'
+lname3= 'Tabilla'
+subject3 = ['GEC17','GEE11','IT51','IT53','IT55','ITCC45','ITCC47','PE33']
+unit3 = [3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0]
+grade3 = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.5]
+
+id4 = 2021302291
+college4 = 'CISC'
+course4 = 'BSIT'
+year4 = 'Second Year'
+fname4 = 'Arram'
+lname4 = 'Pamisa'
+subject4 = ['GEC17','GEE11','IT51','IT53','IT55','ITCC45','ITCC47','PE33']
+unit4 = [3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0]
+grade4 = [1.0,2.0,1.0,1.0,2.0,'inc',2.0,1.0]
+
+id5 = 2021302107
+college5 = 'CISC'
+course5 = 'BSIT'
+year5 = 'Second Year'
+fname5 = 'Kertzby Kyza'
+lname5 = 'Colipano'
+subject5 = ['GEC17','GEE11','IT51','IT53','IT55','ITCC45','ITCC47','PE33']
+unit5 = [3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0]
+grade5 = [1.0,2.25,1.75,2.0,2.0,1.0,2.0,1.25]
+
+#this function calculates the gwa
+def calc_gwa(grade,unit):
+    new_grades = []
+    #This part of the program converts the 'w' and 'inc'grade in line with the units so it does not ruin the calculation
+    for i in range(0, len(unit)):
+        if 'w' in grade:
+            index_w = grade.index('w')
+            grade[index_w] = 0.0
+            unit[index_w] = 0.0
+        if 'inc' in grade:
+            index_inc = grade.index('inc')
+            grade[index_inc] = 5.0
+
+        #this part of the program calculates the total grade of the student when multipliued with its subject units
+        new_grades.append(grade[i]*unit[i])
+    #this part of the program calculates the final gwa of the student
+    final_gwa = (sum(new_grades))/ (sum(unit))
+    roundgwa = '{:.3f}'.format(final_gwa)
+    return roundgwa
+
+#This function displays the details of then students
+def details(id,college,course,year,fname,lname,subject,unit,grade):
+    print(fname+' '+lname)
+    print(id)
+    print(course)
+    print(year)
+    print(college)
+    THeader = '{:^10}|{:^10}|{:^10}'
+    print(THeader.format('Subject','Unit','Grade'))
+    for i in range(0,8):
+        column = '{:^10}|{:^10}|{:^10}'
+        print(column.format(subject[i],unit[i],grade[i]))
+    Gwa = '{:>25}'
+    print(Gwa.format(calc_gwa(grade,unit)))
+
+
+
+print(details(id1,college1,course1,year1,fname1,lname1,subject1,unit1,grade1,))
+print(details(id2,college2,course2,year2,fname2,lname2,subject2,unit2,grade2,))
+print(details(id3,college3,course3,year3,fname3,lname3,subject3,unit3,grade3,))
+print(details(id4,college4,course4,year4,fname4,lname4,subject4,unit4,grade4,))
+print(details(id5,college5,course5,year5,fname5,lname5,subject5,unit5,grade5,))
+
+"""
+Anie Joseph P. Cabahug
+BSIT 2A
+Date Submitted:
+
+Description of program:
+        This program calculates the general weighted average of students given in the data set using a function and displays it by using another function."""
