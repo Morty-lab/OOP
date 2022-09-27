@@ -1,0 +1,44 @@
+from mimetypes import init
+
+
+class student():
+    def __init__(self,ID,Last_name,First_name,College,Year_level,Subject_enrolled,Units,List_grades):
+        self.grade = List_grades
+        self.unit = Units
+        self.id = ID
+        self.lname = Last_name
+        self.fname = First_name
+        self.college = College
+        self.year = Year_level
+        self.subject = Subject_enrolled
+
+    def gwa_calc(self):
+
+        for i in range(0,len(self.subject)):
+            if 'w' in self.grade:
+                index_w = self.grade.index('w')
+                self.grade[index_w] = 0.0
+                self.unit[index_w] = 0.0
+            if 'inc' in self.grade:
+                index_inc = self.grade.index('inc')
+                self.grade[index_inc] = 5.0
+        
+        new_grades = [self.grade[i] * self.unit[i] for i in range(0,len(self.subject))]
+
+        final_gwa = (sum(new_grades)/ sum(self.unit))
+        return round(final_gwa, 3)
+
+    def details(self):
+        print(self.fname + ' ' + self.lname)
+        print(self.id)
+        print(self.college)
+        print(self.year)
+        for i in range(len(self.subject)):
+            print('{:^8}|{:^8}|{:^8}|'.format(self.subject[i],self.unit[i],self.grade[i]))
+        print('---------------------------')
+        print('GWA'+ str('{:>22}'.format(self.gwa_calc())))
+        print('\n')
+
+
+student1 = student(20201302196,'Cabahug','Anie Joseph','College Of Information Sciences and Computing','Second Year',['ITCC47', 'ITCC45', 'PE33', 'IT51', 'IT55', 'IT53','GEE11','GEC17'],[3.0,3.0,3.0,3.0,3.0,3.0,3.0,2.0],['w','w','w','w','w','inc','w','w'],)
+student1.details()
