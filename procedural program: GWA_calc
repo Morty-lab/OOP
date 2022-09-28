@@ -82,15 +82,15 @@ def details(id,college,course,year,fname,lname,subject,unit,grade):
         column = '{:^10}|{:^10}|{:^10}'
         print(column.format(subject[i],unit[i],grade[i]))
     Gwa = '{:>25}'
-    print(Gwa.format(calc_gwa(grade,unit)))
+    print('GWA' + Gwa.format(calc_gwa(grade,unit)))
 
 
 
-print(details(id1,college1,course1,year1,fname1,lname1,subject1,unit1,grade1,))
-print(details(id2,college2,course2,year2,fname2,lname2,subject2,unit2,grade2,))
-print(details(id3,college3,course3,year3,fname3,lname3,subject3,unit3,grade3,))
-print(details(id4,college4,course4,year4,fname4,lname4,subject4,unit4,grade4,))
-print(details(id5,college5,course5,year5,fname5,lname5,subject5,unit5,grade5,))
+details(id1,college1,course1,year1,fname1,lname1,subject1,unit1,grade1,)
+details(id2,college2,course2,year2,fname2,lname2,subject2,unit2,grade2,)
+details(id3,college3,course3,year3,fname3,lname3,subject3,unit3,grade3,)
+details(id4,college4,course4,year4,fname4,lname4,subject4,unit4,grade4,)
+details(id5,college5,course5,year5,fname5,lname5,subject5,unit5,grade5,)
 
 """
 Anie Joseph P. Cabahug
