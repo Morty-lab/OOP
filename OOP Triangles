@@ -1,0 +1,45 @@
+import math
+
+class triangle():
+    def __init__(self,x1,x2,x3,y1,y2,y3):
+        self.x1 = x1
+        self.x2 = x2       
+        self.x3 = x3
+        self.y1 = y1
+        self.y2 = y2
+        self.y3 = y3
+
+    def get_side1(self):
+         s1 = ((self.x2-self.x1)**2) +((self.y2-self.y1)**2)
+         s1 = math.sqrt(s1)
+         return s1
+          
+    def get_side2(self):
+         s2 =((self.x3-self.x2)**2)+((self.y3-self.y2)**2)
+         s2 = math.sqrt(s2)
+         return s2
+         
+    def get_side3(self):
+         s3 = ((self.x1-self.x3)**2)+((self.y1-self.y3)**2)
+         s3 = math.sqrt(s3)
+         return s3
+
+    def calc_perimeter(self):
+        p = self.get_side1() + self.get_side2()+ self.get_side3()
+        return round(p,3)
+
+    def calc_area(self):
+        p = self.calc_perimeter()/2
+        a = p*(p-self.get_side1())*(p-self.get_side2())*(p-self.get_side3())
+        a = math.sqrt(a)
+        return a
+
+    def __str__(self):
+        return "Triangle which sides has the length " + str(self.get_side1())+str(self.get_side2())+str(self.get_side3()) + "\n" +" With a perimeter of "+ str(self.calc_perimeter())+ "and the area" + str(self.calc_area())
+        
+tri1 = triangle(3,5,6,2,4,3)
+
+print(tri1)
+
+
+     
