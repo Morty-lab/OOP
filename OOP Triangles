@@ -35,7 +35,7 @@ class triangle():
         return a
 
     def __str__(self):
-        return "Triangle which sides has the length " + str(self.get_side1())+str(self.get_side2())+str(self.get_side3()) + "\n" +" With a perimeter of "+ str(self.calc_perimeter())+ "and the area" + str(self.calc_area())
+        return "Triangle ("+str(self.x1)+"," + str(self.y1)+"), (" + str(self.x2)+ ',' + str(self.y2)+"),("+str(self.x3) + "," +str(self.y3) +")"+"\n"+"side 1: "+ str(self.get_side1())+"\n"+"side 2: "+str(self.get_side2())+"\n"+"side 3: "+str(self.get_side3()) + "\n" +"perimeter:  "+ str(self.calc_perimeter())+"\n"+ "area: " + str(self.calc_area())
         
 tri1 = triangle(3,5,6,2,4,3)
 
