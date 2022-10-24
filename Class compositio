@@ -1,20 +1,24 @@
 import math
-from re import T
 
 class point():
     def __init__(self, x,y):
-        self.x = x
-        self.y = y
+        self.__x = x
+        self.__y = y
 
-    def get_point(self):
-        return "point is located at {x},{y}"
+    def get_xcoor(self):
+        return str(self.__x)
 
-    def set_point(self,x,y):
-        self.x = x
-        self.y = y
+    def get_ycoor(self):
+        return str(self.__y)    
+
+    def set_xcoor(self,x):
+        self.__x = x
+
+    def set_ycoor(self,y):
+        self.__y = y
 
     def __str__(self):
-        return "(" + str(self.x) +',' +str(self.y) +')'+'\n'
+        return "(" + str(self.__x) +',' +str(self.__y) +')'+'\n'
 
 
 class square():
@@ -31,8 +35,11 @@ class square():
     def set_side(self,s):
         self.side = s
 
-    def set_coordinates(self,x,y):
-        self.coordinates = point(x,y)
+    def set_xcenter(self,x):
+        point.set_xcoor(self.coordinates,x)
+
+    def set_ycenter(self,y):
+        point.set_xcoor(self.coordinates,y)
 
     def get_perimeter(self):
         perimeter = 4*self.side
@@ -62,8 +69,11 @@ class circle():
     def set_radius(self,r):
         self.radius = r
 
-    def set_coordinates(self,x,y):
-        self.coordinates = point(x,y)
+    def set_xcenter(self,x):
+        point.set_xcoor(self.coordinates,x)
+
+    def set_ycenter(self,y):
+        point.set_xcoor(self.coordinates,y)
 
     def get_diameter(self):
         diameter = self.radius*2
@@ -83,6 +93,7 @@ class circle():
             +'\n'+ 'Diameter: '+ str(self.get_diameter())+'\n'\
                 +'Circumference: ' + str(self.get_circumference())+'\n'\
                     +'Area: ' +str(self.get_area())+'\n'
+
 
 point1 = point(5,5)
 square1 = square(5,5,5)
