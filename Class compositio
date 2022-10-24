@@ -1,0 +1,92 @@
+import math
+from re import T
+
+class point():
+    def __init__(self, x,y):
+        self.x = x
+        self.y = y
+
+    def get_point(self):
+        return "point is located at {x},{y}"
+
+    def set_point(self,x,y):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "(" + str(self.x) +',' +str(self.y) +')'+'\n'
+
+
+class square():
+    def __init__(self,x,y,side):
+        self.coordinates = point(x,y)
+        self.side = side
+
+    def get_side(self):
+        return self.side
+
+    def get_coordinates(self):
+        return self.coordinates
+
+    def set_side(self,s):
+        self.side = s
+
+    def set_coordinates(self,x,y):
+        self.coordinates = point(x,y)
+
+    def get_perimeter(self):
+        perimeter = 4*self.side
+        return perimeter
+
+    def get_area(self):
+        area = self.side**2
+        return area
+
+    def __str__(self):
+        return "Center of square located at " + str(self.coordinates) + '\n'\
+            'Side: '+ str(self.side)+"\n"\
+                'Perimeter: '+ str(self.get_perimeter())+'\n'\
+                    'Area: '+ str(self.get_area())+'\n'
+
+class circle():
+    def __init__(self,x,y,radius):
+        self.coordinates = point(x,y)
+        self.radius = radius
+
+    def get_radius(self):
+        return self.radius
+
+    def get_coordinates(self):
+        return self.coordinates
+    
+    def set_radius(self,r):
+        self.radius = r
+
+    def set_coordinates(self,x,y):
+        self.coordinates = point(x,y)
+
+    def get_diameter(self):
+        diameter = self.radius*2
+        return diameter
+
+    def get_circumference(self):
+        circumference = 2*(math.pi*self.radius)
+        return circumference
+
+    def get_area(self):
+        area = math.pi*(self.radius**2)
+        return area
+
+
+    def __str__(self):
+        return 'Center of circle is located at ' + str(self.coordinates) + '\n'+ 'radius: '+ str(self.radius) \
+            +'\n'+ 'Diameter: '+ str(self.get_diameter())+'\n'\
+                +'Circumference: ' + str(self.get_circumference())+'\n'\
+                    +'Area: ' +str(self.get_area())+'\n'
+
+point1 = point(5,5)
+square1 = square(5,5,5)
+circle1 = circle(5,5,5)
+print(point1)
+print(square1)
+print(circle1)
