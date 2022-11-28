@@ -174,9 +174,21 @@ class graduate(student):
     
 
 adr = address('4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga')
-p1 = employee('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga','Gov employee','Instructor',20000)       
-
+p1 = employee('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga','Gov employee','Faculty',20000)       
 p2 = student('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga',2021302196,'CISC',"2nd",'BSIT')
+p3 = faculty('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga','Gov employee','Faculty',20000,'Information Sciences','Non-Teaching')
+p4 = staff('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga','Gov employee','Faculty',20000,'Technical Staff')
+p5 = undergrad('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga',2021302196,'CISC',"2nd",'BSIT','Regular')
+p6 = graduate('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga',2021302196,'CISC',"2nd",'BSIT',"Masters degree")
 
-print(adr)
-print(p2)
+plist = []
+plist.append(p1)
+plist.append(p2)
+plist.append(p3)
+plist.append(p4)
+plist.append(p5)
+plist.append(p6)
+
+print(len(plist))
+
+    
