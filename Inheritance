@@ -1,0 +1,165 @@
+class address:
+    def __init__(self,hn,str,brgy,mun,reg):
+        self.__hn = hn
+        self.__str = str
+        self.__brgy = brgy
+        self.__mun = mun
+        self.__reg = reg
+
+    #getter
+    def gethousenumber(self):
+        return self.__hn
+    def getstreet(self):
+        return self.__str
+    def getbarangay(self):
+        return self.__brgy
+    def getmunicipality(self):
+        return self.__mun
+    def getregion(self):
+        return self.__reg
+
+    #setter
+    def sethousenumber(self,x):
+        self.__hn = x
+    def setstreet(self,x):
+        self.__str = x
+    def setbarangay(self,x):
+        self.__brgy = x
+    def setmunicipality(self,x):
+        self.__mun = x
+    def setregion(self,x):
+        self.__reg = x
+    
+
+    def __str__(self):
+        return f"Address: {self.__hn},{self.__str},{self.__brgy},{self.__mun},{self.__reg}\n"
+
+class person:
+    def __init__(self,name,dob,age,status,hn,str,brgy,mun,reg):
+        self.__name = name
+        self.__dob = dob
+        self.__age = age
+        self.__status = status
+        self.__address = address(hn,str,brgy,mun,reg)
+
+    # getters
+    def getname(self):
+        return 
+        
+    def __str__(self):
+        return f'Name: {self.__name} \nDate of birth: {self.__dob} \nAge: {self.__age} \nCivil Status: {self.__status} \nAddress: {self.__address}'
+        
+class employee(person):
+    def __init__(self,name,dob,age,status,hn,str,brgy,mun,reg,occupation,position,salary):
+        super().__init__(name,dob,age,status,hn,str,brgy,mun,reg)
+        self.__occ = occupation
+        self.__pos = position
+        self.__sal = salary
+
+    # getters
+    def getocc(self):
+        return self.__occ
+    def getpos(self):
+        return self.__pos
+    def getsal(self):
+        return self.__sal
+            
+    # setters
+    def setocc(self,x):
+        self.__occ = x
+    def setocc(self,x):
+        self.__pos = x
+    def setocc(self,x):
+        self.__sal = x
+
+
+    def __str__(self):
+            return super().__str__() + f'Occupation: {self.__occ} \nPosition: {self.__pos} \nSalary: {self.__sal}'
+            
+            
+class student(person):
+    def __init__(self,name,dob,age,status,hn,str,brgy,mun,reg,id,college,year,course):
+        super().__init__(name,dob,age,status,hn,str,brgy,mun,reg)
+        self.__co= college
+        self.__y = year
+        self.__i = id
+        self.__course = course
+
+    #getter
+    def getcollege(self):
+        return self.__co
+    def getcollege(self):
+        return self.__y
+    def getcollege(self):
+        return self.__i
+    def getcourse(self):
+        return self.__course
+    
+    #setter
+    def setcollege(self,x):
+        self.__co = x
+    def setyear(self,x):
+        self.__y = x
+    def setid(self,x):
+        self.__i = x
+    def setcourse(self,x):
+        self.__course = x
+
+    def __str__(self):
+        return super().__str__() + f'ID: {self.__i} \nCollege: {self.__co} \nYear: {self.__y} \nCourse: {self.__course}'
+         
+class staff(employee):
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary,work_description):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary)
+        self.wd = work_description
+
+    def __str__(self):
+        return super().__str__() + f'\nWork Description: {self.wd}'
+
+class faculty(employee):
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary,work_description):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary)
+        self.wd = work_description
+
+    def __str__(self):
+        return super().__str__() + f'\nWork Description: {self.wd}'
+class undergrad(student):
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course,school_status):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course)
+        self.__stats = school_status
+
+    #getters
+    def getstats(self):
+        return self.__stats
+
+    #setters
+    def setstats(self,x):
+        self.__stats = x
+
+    def __str__(self):
+        return super().__str__() + f'\nSchooling Status: {self.stats} '
+
+class graduate(student):
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course,degree_level):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course)
+        self.__dl = degree_level
+    
+    #getters
+    def getdl(self):
+        return self.__dl
+
+    #setters
+    def setdl(self,x):
+        self.__dl = x
+
+    def __str__(self):
+        return super().__str__() + f'Degree level: {self.__dl}'
+    
+
+adr = address('4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga')
+p1 = employee('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga','Gov employee','Instructor',20000)       
+
+p2 = student('Anie','2022','22','Single','4','Bagyo street','Barangay bulwa','Pagadian','Zamboanga',2021302196,'CISC',"2nd",'BSIT')
+
+print(adr)
+print(p2)
