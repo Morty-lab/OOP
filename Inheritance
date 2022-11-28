@@ -50,17 +50,17 @@ class person:
         return f'Name: {self.__name} \nDate of birth: {self.__dob} \nAge: {self.__age} \nCivil Status: {self.__status} \nAddress: {self.__address}'
         
 class employee(person):
-    def __init__(self,name,dob,age,status,hn,str,brgy,mun,reg,occupation,position,salary):
+    def __init__(self,name,dob,age,status,hn,str,brgy,mun,reg,occupation,work_description,salary):
         super().__init__(name,dob,age,status,hn,str,brgy,mun,reg)
         self.__occ = occupation
-        self.__pos = position
+        self.__wd = work_description
         self.__sal = salary
 
     # getters
     def getocc(self):
         return self.__occ
     def getpos(self):
-        return self.__pos
+        return self.__wd
     def getsal(self):
         return self.__sal
             
@@ -68,13 +68,13 @@ class employee(person):
     def setocc(self,x):
         self.__occ = x
     def setocc(self,x):
-        self.__pos = x
+        self.__wd = x
     def setocc(self,x):
         self.__sal = x
 
 
     def __str__(self):
-            return super().__str__() + f'Occupation: {self.__occ} \nPosition: {self.__pos} \nSalary: {self.__sal}'
+            return super().__str__() + f'Occupation: {self.__occ} \nWork Description: {self.__wd} \nSalary: {self.__sal}'
             
             
 class student(person):
@@ -109,20 +109,37 @@ class student(person):
         return super().__str__() + f'ID: {self.__i} \nCollege: {self.__co} \nYear: {self.__y} \nCourse: {self.__course}'
          
 class staff(employee):
-    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary,work_description):
-        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary)
-        self.wd = work_description
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, work_description, salary,position):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, work_description, salary)
+        self.__pos = position
+
+    def getpos(self):
+        return self.__pos
+
+    def setpos(self,x):
+        self.__pos = x
 
     def __str__(self):
-        return super().__str__() + f'\nWork Description: {self.wd}'
+        return super().__str__() + f'\nPosition: {self.__pos}'
 
 class faculty(employee):
-    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary,work_description):
-        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, position, salary)
-        self.wd = work_description
+    def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, occupation, work_description, salary,department,teaching_status):
+        super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, occupation, work_description, salary)
+        self.__department = department
+        self.__TS = teaching_status
+    
+    def getdept(self):
+        return self.__department
+    def getTS(self):
+        return self.__TS
+    
+    def setdept(self,x):
+        self.__department = x
+    def setTS(self,x):
+        self.__TS = x
 
     def __str__(self):
-        return super().__str__() + f'\nWork Description: {self.wd}'
+        return super().__str__() + f'\nDepartment: {self.__department} \nTeaching status: {self.__TS}'
 class undergrad(student):
     def __init__(self, name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course,school_status):
         super().__init__(name, dob, age, status, hn, str, brgy, mun, reg, id, college, year,course)
