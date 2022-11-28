@@ -191,4 +191,8 @@ plist.append(p6)
 
 print(len(plist))
 
+for i in range (0,len(plist)):
+    print(plist[i],'\n')
+
+
     
